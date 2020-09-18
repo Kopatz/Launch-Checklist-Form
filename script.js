@@ -19,6 +19,7 @@ window.addEventListener("load", function(){
          `;
       });
    });
+   
    form.addEventListener("submit", function(event){
       
       let pilot = document.querySelector("input[name=pilotName]");
@@ -67,6 +68,11 @@ window.addEventListener("load", function(){
       //update launch status/shuttle requirements if fuel too low
       if(Number(fuel.value >= 10000) && Number(mass.value) <= 10000){
          launchStatus.innerHTML = `Shuttle Ready for Launch`;
+         faultyItems.style.visibility = "visible";
+         pilotStatus.innerHTML = `Pilot ${pilot.value} Ready`;
+         copilotStatus.innerHTML = `Copilot ${copilot.value} Ready`;
+         fuelStatus.innerHTML = `Fuel level good for launch`;
+         cargoStatus.innerHTML = `Cargo mass good for launch`;
          launchStatus.style.color = "green";
          event.preventDefault();
       }
